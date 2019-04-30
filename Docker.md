@@ -5,8 +5,10 @@ Wir mussten mit Docker einen zweiten Service erstellen. Welher auch wieder über
 
 In diesem Dokument werde ich kurz beschreiben wie ich den Webservice erstellt habe. Die Website ist nur eine Standart seite aber es istersichtlich, dass ich die HTML seite bearbeitet habe.
 
+
 # Inhhaltsverzeichniss
 1. [Dockerfile](#Dockerfile)
+    1.1 [Zugriff Webservice](#Zugriff)
 2. [Probleme](#Probleme)
 3. [Reflexion](#Reflexion)
 
@@ -41,6 +43,23 @@ Mit "EXPOSE" wird der port freigegeben.
 Um apache standartmässig zu starten wird der "CMD" befehl benötigt.
 
 		CMD ["/usr/sbin/apache2ctl", "-D" "FOREGROUND"]
+
+
+### Zugriff Webservice <a name="Zugriff"></a>
+
+Der zugriff auf den Webservice erfolgt über einen Webbrowser.
+
+WICHTIG!
+
+Ich habe auf einer VM gearbeitet und jenach VM einstellung ist der Webservice auf dem Lokalengerät erreichbar oder nur über die VM selbst.
+
+Wenn meine VM auf "NAT" gestellt ist, ist der Webservice nur auf der Ubuntu Maschine im Webbrowser aufrufbar. 
+
+        172.0.0.1:8080
+
+Wenn die VM auf VMnet1 gestellt ist also "Host-Only" kann man die IP-Adresse aufrufen und mit der IP-Adresse auch vom Lokalen Computer darauf zugreifen.
+
+        "IP-Adresse":8080
 
 ## Probleme <a name="Probleme"></a>
 
